@@ -1,2 +1,2 @@
-# conding apple
+# coding apple
 study js
