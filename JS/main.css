@@ -1,5 +1,6 @@
 .list-group {
     display: none;
+    
 }
 .show{
     display: block;
@@ -10,12 +11,11 @@
     height : 100%;
     position : fixed;
     background : rgba(0,0,0,0.5);
-    z-index : 5;
+    z-index : 6;
     padding: 30px;
     visibility: hidden;
     opacity: 0;
     transition: all 1s;
-
   }
 .white-bg {
     background: white;
@@ -45,3 +45,27 @@
     background-color: black;
     color: white;
 }
+.slide-container{
+    width: 300vw;
+    
+    transition: all 1s;
+}
+.slide-box{
+    width: 100vw;
+    float: left;
+}
+.slide-box img{
+    width: 100%;
+}
+
+.navbar{
+    position: fixed;
+    width: 100vw;
+    z-index: 5;
+    padding: 2px;
+}
+.navbar-brand{
+    font-size: 30px;
+    transition: all 1s ease-in-out;
+}
+
