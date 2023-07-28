@@ -65,6 +65,55 @@
           <p>배송정보입니다. Shipping</p>
         </div>
       </div> 
+      <div class="container mt-3">
+        <div class="card p-3">
+          <span class="car-title">상품명</span>
+          <span class="car-price">가격</span>
+        </div>
+      </div>
+
+      <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2 product">
+          <option style= "color: grey;">상품을 선택해주세요</option>
+          <option>모자</option>
+          <option>셔츠</option>
+          <option>바지</option>
+        </select>
+        <select class="form-select mt-2 size tab-content">
+          <option>s</option>
+          <option>m</option>
+        </select>
+    </form>
+
+    <div id="test">
+
+    </div>
+    <script>
+      var pants = [28, 30, 32];
+      $('.form-select').eq(0).on('input', function(){
+    
+        var value = $('.form-select').eq(0).val();
+        if (value == '셔츠') {
+          $('.form-select').eq(1).removeClass('tab-content');
+        }
+        else if (value == '바지'){
+          $('.form-select').eq(1).removeClass('tab-content');
+          $('.form-select').eq(1).html('');
+          pants.forEach(function(a){
+            $('.form-select').eq(1).append(`<option>${a}</option>`)
+          })
+        }
+    
+      });
+    </script>
+
+
+      <script>
+        var car2 = {name : '소나타', price : [50000, 3000, 4000]}
+        document.querySelector('.car-price').innerHTML = car2.price[0]
+
+      </script>
 </body>
 <script src="./detail.js"></script>
 </html>
