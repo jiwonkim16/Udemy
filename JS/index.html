@@ -52,13 +52,13 @@
   <div style="overflow: hidden;">  
     <div class="slide-container">
       <div class="slide-box">
-        <img src="./img/car1.png">
+        <img src="./img/car1.png" draggable="false">
       </div>
       <div class="slide-box">
-        <img src="./img/car2.png">   
+        <img src="./img/car2.png" draggable="false">   
       </div>
       <div class="slide-box">
-        <img src="./img/car3.png">
+        <img src="./img/car3.png" draggable="false">
       </div>
     </div>
   </div>  
@@ -77,6 +77,43 @@
 
 
 
+    <script>
+
+      var 시작좌표 = 0;
+      var 눌렀냐 = false;
+
+      $('.slide-box').eq(0).on('mousedown',function(e){
+       시작좌표 = e.clientX
+       눌렀냐 = true; 
+      });
+
+      $('.slide-box').eq(0).on('mousemove',function(e){
+        if(눌렀냐==true){
+          $('.slide-container').css('transform', `translateX(${e.clientX - 시작좌표}px)`)
+        }
+        
+      });
+
+      $('.slide-box').eq(0).on('mouseup',function(e){
+       눌렀냐 = false; 
+
+        if(e.clientX - 시작좌표<-100){
+          $('.slide-container').css('transition','all 1s').css('transform','translateX(-100vw)')
+        }else{
+          $('.slide-container').css('transition','all 1s').css('transform','translateX(0vw)')
+        }
+        setTimeout(()=>{
+          $('.slide-container').css('transition','none')
+        },500)
+        
+
+      });
+
+    </script>
+
+
+
+
   <script>
     document.querySelector('.black-bg').addEventListener('click', function(e){
       const black_bg = document.querySelector('.black-bg')
@@ -84,11 +121,6 @@
         document.querySelector('.black-bg').classList.remove('show-modal')
       }
     })
-
-
-
-
-
   </script>
 
 
