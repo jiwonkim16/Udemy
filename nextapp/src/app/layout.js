@@ -13,10 +13,11 @@ export default async function RootLayout({ children }) {
   //   .then((result) => {
   //     setTopics(result);
   //   });
-  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL + "topics", {
-    next: { revalidate: 0 },
-  });
-  const topics = await resp.json();
+
+  // const resp = await fetch(process.env.NEXT_PUBLIC_API_URL + "topics", {
+  //   next: { revalidate: 0 },
+  // });
+  // const topics = await resp.json();
   return (
     <html>
       <body>
@@ -24,16 +25,16 @@ export default async function RootLayout({ children }) {
           <Link href="/">WEB</Link>
         </h1>
         <ol>
-          {topics.map((item) => {
+          {/* {topics.map((item) => {
             return (
               <li key={item.id}>
                 <Link href={`/read/${item.id}`}>{item.body}</Link>
               </li>
             );
-          })}
+          })} */}
         </ol>
         {children}
-        <Control />
+        {/* <Control /> */}
       </body>
     </html>
   );
